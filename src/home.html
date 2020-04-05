@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Ãvod | Teletext</title>
+  <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" media="print" href="print.css" />
+</head>
+<body>
+<div id="ad">
+  <img src="https://thumbs.gfycat.com/UnfinishedPleasedBear-size_restricted.gif" alt="reklama">
+  <button onclick="removeElement()">X</button>
+</div>
+<div id="container">
+  <div id="header">
+    <img src="//www.exampointers.com/teletext/images/teletext.gif" alt="Teletext logo" class="headerlogo">
+  </div>
+  <div id="content">
+    <div class="nav">
+      <img src="//cdn140.picsart.com/236262811090212.png?type=webp&to=min&r=1024" alt="TV logo" class="logo">
+      <h3>NavigÃ¡cia</h3>
+      <ul class="nav_list">
+        <li><a class="selected" href="home.html" data-toggle="tooltip" title="DomovskÃ¡ strÃ¡nka">Ãvod</a></li>
+        <li><a href="programs.html" data-toggle="tooltip" title="Zoznam relÃ¡ciÃ­ televÃ­znych programov">TV Program</a></li>
+        <li><a href="article.html" data-toggle="tooltip" title="SledovanosÅ¥ stanÃ­c v SR">ÄlÃ¡nok</a></li>
+        <li><a href="forms.html" data-toggle="tooltip" title="Diskutujte s ostatnÃ­mi nÃ¡vÅ¡tevnÃ­kmi">Diskusia</a></li>
+        <li><a href="#footer" data-toggle="tooltip" title="Odkaz na autora">Kontakt</a></li>
+      </ul>
+      <br>
+    </div>
+    <div class="main">
+      <h2>Ãvod</h2>
+      <hr/>
+      <p>Vitaj na naÅ¡ej strÃ¡nke, ktorÃ¡ obsahuje zaujÃ­mavÃ© ÄlÃ¡nky o televÃ­znych programoch.</p>
+      <p>Okrem toho tu mÃ´Å¾eÅ¡ nÃ¡jsÅ¥ aj televÃ­zny program na dnes. Poskytujeme len tie najzaujÃ­mavejÅ¡ie a najznÃ¡mejÅ¡ie televÃ­zne programy. StÃ¡le aktuÃ¡lny TV program pre vaÅ¡u obÄ¾ÃºbenÃº stanicu.</p>
+      <p>V prÃ­pade zÃ¡ujmu o spoluprÃ¡cu s poskytovanÃ­m obsahu naÅ¡ej strÃ¡nky pre ÄitateÄ¾ov, nevÃ¡haj nÃ¡s kontaktovaÅ¥ prostrednÃ­ctvom emailu uvedenÃ©ho v zÃ¡hlavÃ­ strÃ¡nky.</p>
+    </div>
+  </div>
+  <div id="footer">
+    <svg class="graphics">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(255,245,0);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:rgb(0,15,219);stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(0,15,219);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:rgb(255,245,0);stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <ellipse cx="140" cy="20" rx="50" ry="20" fill="url(#grad2)" />
+      <ellipse cx="70" cy="20" rx="50" ry="20" fill="url(#grad1)" />
+      <text fill="#ffffff" font-size="23" font-family="Verdana" x="45" y="27">Tele -</text>
+      <text fill="#ffffff" font-size="23" font-family="Verdana" x="115" y="27">Text</text>
+    </svg>
+    <div class="contact">
+    Copyright &copy; Richard Sabol &ensp; 01. 03. 2020 &ensp;<a href="mailto:sabol.richard@centrum.sk?Subject=Reakcia%20na%20VÃ¡Å¡%20blog%20s%20nÃ¡zvom%20Sledovanost%20stanic%20v%20SR" target="_top" data-toggle="tooltip" title="PoslaÅ¥ mail">sabol.richard@centrum.sk</a>
+    </div>
+  </div>
+</div>
+<script>
+  function removeElement() {
+    document.getElementById("ad").style.display = "none";
+  }
+  </script>
+</body>
+</html>

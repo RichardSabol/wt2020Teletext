@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Ãvod | Teletext</title>
+  <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" media="print" href="print.css" />
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <img src="//www.exampointers.com/teletext/images/teletext.gif" alt="Teletext logo" class="headerlogo">
+  </div>
+  <div id="content">
+    <div class="nav">
+      <img src="//cdn140.picsart.com/236262811090212.png?type=webp&to=min&r=1024" alt="TV logo" class="logo">
+      <h3>NavigÃ¡cia</h3>
+      <ul class="nav_list">
+        <li><a class="selected" href="home.html" data-toggle="tooltip" title="DomovskÃ¡ strÃ¡nka">Ãvod</a></li>
+        <li><a href="programs.html" data-toggle="tooltip" title="Zoznam relÃ¡ciÃ­ televÃ­znych programov">TV Program</a></li>
+        <li><a href="article.html" data-toggle="tooltip" title="SledovanosÅ¥ stanÃ­c v SR">ÄlÃ¡nok</a></li>
+        <li><a href="forms.html" data-toggle="tooltip" title="Diskutujte s ostatnÃ­mi nÃ¡vÅ¡tevnÃ­kmi">Diskusia</a></li>
+        <li><a href="#footer" data-toggle="tooltip" title="Odkaz na autora">Kontakt</a></li>
+      </ul>
+      <br>
+    </div>
+    <div class="main">
+      <h1>Diskusia</h1>
+      <div id="opinionsContainer"></div>
+      <h3 id="addComment">PridaÅ¥ komentÃ¡r</h3>
+      <p id="required">*povinnÃ©</p>
+      <form id="opnFrm" method="GET" enctype="multipart/form-data">
+        <div id="nameDiv">
+          <label for="name" class="required">*Meno</label>
+          <input type="text" name="name" id="name" required placeholder="Enter name">
+        </div>
+        <div id="genderDiv">
+        <label id="gender">Pohlavie</label>
+          <div id="maleDiv">
+            <label for="male">MuÅ¾</label>
+            <input type="radio" name="gender" id="male" value="male">
+          </div>
+          <div id="femaleDiv">
+            <label for="female">Å½ena</label>
+            <input type="radio" name="gender" id="female" value="female">
+          </div>
+          <div id="neviemDiv">
+            <label for="neviem">Neviem</label>
+            <input type="radio" name="gender" id="neviem" value="neviem">
+          </div>
+        </div>
+
+        <div id="emailDiv">
+          <label for="email" id="emailLabel" class="required">*Email</label>
+          <input type="email" name="email" id="email" required placeholder="Enter email">
+        </div>
+
+        <div id="ageDiv">
+          <label for="age" id="ageLabel">Vek<span id="agedisplay"> </span></label>
+          <input type="range" name="age" id="age" min="1" max="100" step="1" value="20">
+        </div>
+
+        <div id="showAgeDiv">
+          <label for="showAge">SkryÅ¥ vek</label>
+          <input type="checkbox" name="showAge" id="showAge">
+        </div>
+
+        <div id="urlDiv">
+          <label for="url" id="urlLabel">ObrÃ¡zok</label>
+          <input type="url" name="url" id="url" placeholder="Image URL">
+        </div>
+
+        <div id="keywordsDiv">
+          <label for="keywords">Hodnotenie</label>
+          <input list="key_list" id="keywords" name="keywords" placeholder="Rate our page"/>
+
+          <datalist id="key_list">
+            <option value="vÃ½bornÃ¡ strÃ¡nka">
+            <option value="dobrÃ¡ strÃ¡nka">
+            <option value="dÃ¡ sa aj lepÅ¡ia">
+            <option value="nepÃ¡Äi sa mi">
+            <option value="pri pohÄ¾ade na Åu si musÃ­m oÄi vyplÃ¡chnuÅ¥ peroxidom">
+          </datalist>
+        </div>
+
+        <div id="commentDiv">
+          <label for="comment" id="commentLabel" class="required">*KomentÃ¡r</label>
+          <textarea id="comment" name="comment" required placeholder="Insert comment here"> </textarea>
+        </div>
+        <div id="popup">
+          <label for="pass">Password:</label>
+          <input id="pass" type="password"/>
+          <div id="popupButtons">
+            <button onclick="clearAll()">All</button>
+            <button onclick="clearOld()">Old</button>
+          </div>
+        </div>
+        <div id="buttons">
+          <div class="button_reset" id="button_reset" onclick="document.forms['opnFrm'].reset();"><a class="resetButton">ObnoviÅ¥</a></div>
+          <div class="button_clear" onclick="showPopup()"><a>Clear</a></div>
+          <div class="button_submit" id="button_submit"><a class="submitButton"><span>OdoslaÅ¥</span></a></div>
+        </div>
+      </form>
+      <div id="myModal" class="modal">
+
+        <div class="modal-content">
+          <img src="images/alert.png" alt="Alert" class="alert">
+          <span class="close">&times;</span>
+          <h3 id="alert_text">ProsÃ­m vypÄºnte povinnÃ© Ãºdaje: <br>Meno, email a komentÃ¡r</h3>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <svg class="graphics">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(255,245,0);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:rgb(0,15,219);stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(0,15,219);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:rgb(255,245,0);stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <ellipse cx="140" cy="20" rx="50" ry="20" fill="url(#grad2)" />
+      <ellipse cx="70" cy="20" rx="50" ry="20" fill="url(#grad1)" />
+      <text fill="#ffffff" font-size="23" font-family="Verdana" x="45" y="27">Tele -</text>
+      <text fill="#ffffff" font-size="23" font-family="Verdana" x="115" y="27">Text</text>
+    </svg>
+    <div class="contact">
+      Copyright &copy; Richard Sabol &ensp; 01. 03. 2020 &ensp;<a href="mailto:sabol.richard@centrum.sk?Subject=Reakcia%20na%20VÃ¡Å¡%20blog%20s%20nÃ¡zvom%20Sledovanost%20stanic%20v%20SR" target="_top" data-toggle="tooltip" title="PoslaÅ¥ mail">sabol.richard@centrum.sk</a>
+    </div>
+  </div>
+</div>
+
+<script id="commentTemplate" type="text/template">
+  <section id="commentTemplateDiv">
+    <h4 id="commentTemplateHead">{{name}} {{age}} <i>({{createdDate}})</i></h4>
+    <p id="commentTemplateComment">{{comment}}</p>
+  </section>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"
+        integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8="
+        crossorigin="anonymous">
+</script>
+
+<script src="Javascript.js"></script>
+
+<script>
+  //-----------------------------------Functions--------------------------------------------------
+  function clearAll() {
+    document.getElementById("popup").style.display = "none";
+    const password = document.getElementById("pass").value;
+    if(password === "jahoda"){
+      localStorage.clear();
+      location.reload();
+    }
+    else {
+      alert("invalid password");
+    }
+    forms.reset();
+  }
+
+  function clearOld() {
+    document.getElementById("popup").style.display = "none";
+    const password = document.getElementById("pass").value;
+    if(password === "jahoda"){
+      for (let i=0; i< comments.length; i++){
+        if ((Date.now() - new Date(comments[i].created)) > 86400000){
+          comments.splice(i,1);
+          localStorage.myTreesComments = JSON.stringify(comments);
+          opinionsElm.innerHTML=opinionArray2html(comments);
+        }
+      }
+    }
+    else {
+      alert("invalid password");
+    }
+    forms.reset();
+  }
+
+
+
+  function showPopup() {
+    document.getElementById("popup").style.display = "block";
+  }
+
+  const slider = document.getElementById("age");
+  const output = document.getElementById("agedisplay");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  };
+
+  const event = new CustomEvent("submit", {"detail": "Submit forms"});
+
+  const modal = document.getElementById("myModal");
+
+  const btn = document.getElementById("button_submit");
+  const btn_reset = document.getElementById("button_reset");
+
+  const span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+
+    if(document.forms['opnFrm'].checkValidity() === true){
+      processOpnFrmData(event)
+    }
+    else
+      modal.style.display = "block";
+  };
+
+  btn_reset.onclick = function(){
+    document.forms['opnFrm'].reset();
+    output.innerHTML = '20';
+  };
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  </script>
+
+
+  <script>
+  let forms=document.getElementById("opnFrm");
+
+ // forms.addEventListener("submit", processOpnFrmData);
+
+  function processOpnFrmData(event){
+    //1.prevent normal event (form sending) processing
+    event.preventDefault();
+
+    let inputs = forms.elements;
+
+    let result;
+    if(inputs["male"].checked)
+      result = inputs["male"].value.trim();
+    else if (inputs["female"].checked)
+      result = inputs["female"].value.trim();
+    else if (inputs["neviem"].checked)
+      result = inputs["neviem"].value.trim();
+    else result = "";
+
+    const showAge = inputs["showAge"].checked;
+    let age;
+    if(showAge)
+      age = "";
+    else
+      age = document.getElementById("age").value.trim();
+
+    const newComment =
+      {
+        name: inputs["name"].value.trim(),
+        gender: result,
+        email: inputs["email"].value.trim(),
+        age: age,
+        showAge: showAge,
+        url: inputs["url"].value.trim(),
+        comment: inputs["comment"].value.trim(),
+        created: new Date()
+      };
+
+    console.log("New opinion:\n "+JSON.stringify(newComment));
+
+    comments.push(newComment);
+
+    localStorage.myTreesComments = JSON.stringify(comments);
+
+    //window.alert("Your opinion has been stored. Look to the console");
+    console.log("New opinion added");
+    console.log(comments);
+
+    opinionsElm.innerHTML+=opinion2html(newComment);
+
+    forms.reset();
+  }
+
+
+</script>
+</body>
+</html>
